@@ -6,6 +6,13 @@
     </head>
     <body>
         <h1>Test</h1>
-        <p>Hello, World!</p>
+        <p id='test'>Hello, World!</p>
+        <script>
+            let startParam = window.Telegram.WebApp.initDataUnsafe.start_param;
+            if (startParam == undefined) {
+                startParam = "None"
+            }
+            document.getElementById('test').innerText = startParam;
+        </script>
     </body>
 </html>
