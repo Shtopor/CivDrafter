@@ -7,12 +7,19 @@
     <body>
         <h1>Test</h1>
         <p id='test'>Hello, World!</p>
+        <button id="demo" onclick="myFunction()">Test</button>
         <script>
             let startParam = window.Telegram.WebApp.initDataUnsafe.start_param;
             if (startParam == undefined) {
                 startParam = "None"
             }
             document.getElementById('test').innerText = startParam;
+
+            function myFunction() {
+                document.getElementById("demo").style.color = "red";
+                let test = { 'aaa' : 1, 'bbb' : 2 };
+                window.Telegram.WebApp.sendData(JSON.stringify(test));
+            }
         </script>
     </body>
 </html>
