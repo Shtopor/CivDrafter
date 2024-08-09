@@ -17,8 +17,18 @@
 
             function myFunction() {
                 document.getElementById("demo").style.color = "red";
-                fetch("https://tetra-lasting-cricket.ngrok-free.app/msg?id=" + startParam)
-                    .then((response) => response.json())
+                // fetch("https://tetra-lasting-cricket.ngrok-free.app/msg?id=" + startParam)
+                //     .then((response) => response.text())
+                //     .then((json) => document.getElementById('test').innerText = json);
+
+                fetch('https://tetra-lasting-cricket.ngrok-free.app/msg', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json;charset=utf-8'
+                        },
+                        body: JSON.stringify({ id: startParam })
+                    })
+                    .then((response) => response.text())
                     .then((json) => document.getElementById('test').innerText = json);
             }
         </script>
